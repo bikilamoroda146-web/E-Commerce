@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FiShoppingCart } from "react-icons/fi";
+import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
 function NavBar() {
+    const [open, setOpen] = useState(false);
     const linkClass = ({ isActive }) =>
         isActive ? "text-orange-500 font-semibold border-b-2" : "text-gray-700 hover:text-orange-500"
     return (
@@ -14,7 +15,7 @@ function NavBar() {
                         <span className="font-bold text-lg text-coffee-brown tracking-tight">yourTech</span>
                         <span className="text-coffee-orange font-bold">Coffee Shop</span>
                     </Link>
-                    <nav className="flex gap-2">
+                    <nav className="md:flex hidden gap-2">
                         <NavLink to="/" className={linkClass}>
                             Home
                         </NavLink>
@@ -26,11 +27,20 @@ function NavBar() {
                         <Link className="text-coffee-brown hover:text-coffee-orange">
                             <FiShoppingCart size={24} />
                         </Link>
-                        <button className="bg-coffee-orange px-4 py-1 rounded-xl hover:bg-coffee-brown text-white">
-                            Sign in
-                        </button>
-                        <button className="border-red-500 border-2-b px-4 py-1 rounded-xl text-red-500 hover:bg-red-200">
-                            Sign Out
+                        <div className="md:flex hidden gap-3 items-center">
+                            <button className="bg-coffee-orange px-4 py-1 rounded-xl hover:bg-coffee-brown text-white">
+                                Sign in
+                            </button>
+                            <button className="border-red-500 border-2 px-4 py-1 rounded-xl text-red-500 hover:bg-red-200">
+                                Sign Out
+                            </button>
+                        </div>
+                        <button onClick={() => setOpen(!open)}>
+                            {
+                                open ? <FiX size={24} /> : <FiMenu size={24} />
+                            }
+
+
                         </button>
                     </div>
                 </div>
@@ -39,4 +49,4 @@ function NavBar() {
         </header >
     );
 }
-export default NavBar; 
+export default NavBar;
