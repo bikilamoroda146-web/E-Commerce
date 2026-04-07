@@ -2,14 +2,21 @@
 import './App.css'
 import NavBar from './componnents/NavBar'
 import Footer from './componnents/Footer'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
 
 function App() {
 
   return (
     <>
       <NavBar />
+<Routes>
+  <Route path='/' element={<Home />}>
+
+  </Route>
+</Routes>
       <Footer />
-      <h1 className='bg-orange text-3xl caret-lime-100'>Hello from Coffee Jama</h1>
+     
     </>
   )
 }

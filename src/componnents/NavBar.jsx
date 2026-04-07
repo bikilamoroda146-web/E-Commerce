@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
 function NavBar() {
@@ -6,7 +6,7 @@ function NavBar() {
     const linkClass = ({ isActive }) =>
         isActive ? "text-orange-500 font-semibold border-b-2" : "text-gray-700 hover:text-orange-500"
     return (
-        <header className="bg-coffee-cream border-b ">
+        <header className="bg-coffee-cream border-b border-coffee-orange">
             <div className="max-w-6xl mx-auto p-4">
                 <div className="flex items-center justify-between">
 
@@ -35,7 +35,8 @@ function NavBar() {
                                 Sign Out
                             </button>
                         </div>
-                        <button onClick={() => setOpen(!open)}>
+                        <button className="md:hidden flex justify-center text-coffee-brown"
+                         onClick={() => setOpen(!open)}>
                             {
                                 open ? <FiX size={24} /> : <FiMenu size={24} />
                             }
@@ -45,7 +46,31 @@ function NavBar() {
                     </div>
                 </div>
             </div>
-
+<div>
+    {
+        open && (
+            <div className="md:hidden">
+               <nav className="flex flex-col p-4 gap-4">
+                        <NavLink to="/" className={linkClass} onClick={()=>setOpen(false)}>
+                            Home
+                        </NavLink>
+                        <NavLink to="menu" className={linkClass} onClick={()=>setOpen(false)}>
+                            Menu
+                        </NavLink>
+                         <button className="bg-coffee-orange px-4 py-1 rounded-xl hover:bg-coffee-brown text-white">
+                                Sign in
+                            </button>
+                           <button className="border-red-500 border-2 px-4 py-1 rounded-xl text-red-500 hover:bg-red-200">
+                                Sign Out
+                            </button>
+                    </nav>
+                     
+                           
+                        
+            </div>
+        )
+    }
+</div>
         </header >
     );
 }

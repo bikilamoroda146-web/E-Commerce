@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 function Footer() {
     return (
         <footer className="bg-coffee-brown text-white p-4">
-            <div className="max-w-6xl mx-auto px-4 grid gap-8 grid-cols-3">
+            <div className="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3">
                 <div>
-                    <h3 className="font-semibold text-lg">☕YoursTech Coffee Shop</h3>
+                    <h3 className="font-semibold text-lg">☕<span className="text-coffee-orange">YoursTech</span> Coffee Shop</h3>
                     <p className="mt-3 text-white/80">
                         Fresh Coffee scacks and simple online ordering expereince
                     </p>
