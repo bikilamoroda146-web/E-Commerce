@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
+import { useCart } from "../context/CartContext";
 function NavBar() {
     const [open, setOpen] = useState(false);
+    const {cartCount} = useCart();
     const linkClass = ({ isActive }) =>
         isActive ? "text-orange-500 font-semibold border-b-2" : "text-gray-700 hover:text-orange-500"
     return (
@@ -24,8 +26,12 @@ function NavBar() {
                         </NavLink>
                     </nav>
                     <div className="flex items-center gap-4">
-                        <Link className="text-coffee-brown hover:text-coffee-orange">
+                        <Link className="text-coffee-brown relative hover:text-coffee-orange">
                             <FiShoppingCart size={24} />
+                            {
+                                cartCount > 0 && <span className="absolute -top-2 right-2h-5 px-1 rounded-full bg-red-600 text-white font-bold  flex items-center justify-center"
+                                >{cartCount}</span>
+                            }
                         </Link>
                         <div className="md:flex hidden gap-3 items-center">
                             <button className="bg-coffee-orange px-4 py-1 rounded-xl hover:bg-coffee-brown text-white">
