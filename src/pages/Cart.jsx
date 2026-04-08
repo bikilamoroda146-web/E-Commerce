@@ -1,13 +1,23 @@
 import React from 'react'
 import { useCart } from '../context/CartContext'
 import { FiPlus, FiMinus, FiTrash2 } from 'react-icons/fi';
-
+import { Link } from 'react-router-dom';
 function Cart() {
     const {cartItems} = useCart();
 
+    if(cartItems.length ===0){
+        return(
+            <div className='max-6xl mx-auto px-4 py-14 '>
+                <h1 className='text-4xl text-center font-bold text-coffee-orange py-6 px-4'>Your cart is Empty</h1>
+                <Link to="/menu" className='mt-6 block border border-coffee-orange  py-3 px-4 text-coffee-orange text-lg rounded-lg text-center hover:bg-coffee-brown'>
+                Continue shopping
+                </Link>
+            </div>
+        )
+    }
   return (
     <div className='max-6xl mx-auto px-4 py-14 '>
-        <h1 className='text-4xl font-bold text-coffee-orange py-6 px-4'>Shopping Cart</h1>
+        <h1 className='text-4xl text-center font-bold text-coffee-orange py-6 px-4'>Shopping Cart</h1>
            <div className='space-y-4 mb-8'>
             {
                 cartItems.map(item =>(
@@ -49,9 +59,15 @@ function Cart() {
                 </div>
                 <div className='flex justify-between border-t border-coffee-orange pt-3'>
                     <span className='text-lg font-bold'>Total</span>
-                    <span className='text-2xlfont-bold text-coffee-orange'>$ 33:00</span>
+                    <span className='text-2xl font-bold text-coffee-orange'>$ 33:00</span>
                 </div>
             </div>
+            <Link to="/checkout" className='w-full block text-center px-6 py-3 bg-coffee-orange text-white rounded-lg font-bold hover:bg-coffee-brown transition'>
+            Proceed to checkOut
+            </Link>
+            <Link to="menu" className='w-full border block border-coffee-orange bg-white px-6 py-3 mt-4 text-coffee-orange rounded-lg text-center font-bold hover:bg-coffee-cream ' >
+            Continue to shopping
+            </Link>
            </div>
     </div>
   )

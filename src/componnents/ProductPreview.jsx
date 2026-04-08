@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { FiShoppingCart } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import products from '../Data/products'
 import AddToCart from '../componnents/AddToCart'
@@ -26,7 +25,7 @@ function ProductPreview() {
                     <p className='text-sm text-gray-500'>{product.description}</p>
                     <div className='flex justify-between items-center'>
                         <span className='text-coffee-orange font-bold '>{product.price}</span>
-                        <AddToCart/>
+                        <AddToCart product={product}/>
 
                     </div>
                     <div className='mt-3 block text-center bg-coffee-caramel px-3 py-2 rounded-2xl text-coffee-brown text-sm hover:bg-coffee-orange'>

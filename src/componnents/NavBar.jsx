@@ -14,7 +14,7 @@ function NavBar() {
 
                     <Link className="flex items-center gap-2">
                         <span className="text-2xl">☕</span>
-                        <span className="font-bold text-lg text-coffee-brown tracking-tight">yourTech</span>
+                        <span className="font-bold text-lg text-coffee-brown tracking-tight">Oro</span>
                         <span className="text-coffee-orange font-bold">Coffee Shop</span>
                     </Link>
                     <nav className="md:flex hidden gap-2">
@@ -26,10 +26,10 @@ function NavBar() {
                         </NavLink>
                     </nav>
                     <div className="flex items-center gap-4">
-                        <Link className="text-coffee-brown relative hover:text-coffee-orange">
+                        <Link to="/cart" className="text-coffee-brown relative hover:text-coffee-orange">
                             <FiShoppingCart size={24} />
                             {
-                                cartCount > 0 && <span className="absolute -top-2 right-2h-5 px-1 rounded-full bg-red-600 text-white font-bold  flex items-center justify-center"
+                                cartCount > 0 && <span className="absolute -top-2 right-2h-5 px-1 rounded-full bg-red-600 text-white font-bold  flex items-center justify-center text-sm"
                                 >{cartCount}</span>
                             }
                         </Link>
