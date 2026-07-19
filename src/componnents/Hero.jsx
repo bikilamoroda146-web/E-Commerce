@@ -4,7 +4,7 @@ import heroImages from'./../assets/r.png'
 function Hero() {
   return (
     <section className='bg-linear-to-b from-coffee-cream to-white'>
-    <div className='max-w-6xl mx-auto py-16 px-8 grid md:grid-cols-2 items-center gap-8'>
+    <div className='max-w-6xl mx-auto py-10 px-8 grid md:grid-cols-2 items-center gap-8'>
       <div>
         <p className='bg-coffee-orange inline px-6 py-2 items-center rounded-full text-sm'>☕Fresh, Fast order</p>
         <h1 className='mt-4 text-4xl font-extrabold text-coffee-brown tracking-tight md:text-5xl'>Frech Coffee from {" "} <span>Oro</span>Coffee Shop</h1>

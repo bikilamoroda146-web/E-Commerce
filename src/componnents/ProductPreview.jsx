@@ -14,7 +14,9 @@ function ProductPreview() {
 
             <div className='grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
                 {products.map((product)=>(
-<div className='p-4 rounded-2xl border border-coffee-caramel bg-white overflow-hidden shadow-md hover:shadow-xl transition-all'>
+            <div  
+            key={product.id}
+            className='p-4 rounded-2xl border border-coffee-caramel bg-white overflow-hidden shadow-md hover:shadow-xl transition-all'>
                 <div className='relative overflow-hidden h-48'>
                     <Link>
                     <img src={product.image} alt="" className='rounded-2xl w-full h-full object-cover hover:scale-110 transition-transform duration-300' />

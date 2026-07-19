@@ -12,7 +12,7 @@ function NavBar() {
             <div className="max-w-6xl mx-auto p-4">
                 <div className="flex items-center justify-between">
 
-                    <Link className="flex items-center gap-2">
+                    <Link className="flex items-center gap-2" to="/">
                         <span className="text-2xl">☕</span>
                         <span className="font-bold text-lg text-coffee-brown tracking-tight">Oro</span>
                         <span className="text-coffee-orange font-bold">Coffee Shop</span>
@@ -33,10 +33,13 @@ function NavBar() {
                                 >{cartCount}</span>
                             }
                         </Link>
+                        
                         <div className="md:flex hidden gap-3 items-center">
+                            <Link to="/signin">
                             <button className="bg-coffee-orange px-4 py-1 rounded-xl hover:bg-coffee-brown text-white">
                                 Sign in
                             </button>
+                            </Link>
                             <button className="border-red-500 border-2 px-4 py-1 rounded-xl text-red-500 hover:bg-red-200">
                                 Sign Out
                             </button>

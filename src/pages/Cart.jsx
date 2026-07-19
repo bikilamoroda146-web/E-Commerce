@@ -3,7 +3,7 @@ import { useCart } from '../context/CartContext'
 import { FiPlus, FiMinus, FiTrash2 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 function Cart() {
-    const {cartItems} = useCart();
+    const {cartItems, increasingQuantity, decreaseQuantity, removeFromCart, cartCount, cartTotal} = useCart();
 
     if(cartItems.length ===0){
         return(
@@ -11,7 +11,7 @@ function Cart() {
                 <h1 className='text-4xl text-center font-bold text-coffee-orange py-6 px-4'>Your cart is Empty</h1>
                 <Link to="/menu" className='mt-6 block border border-coffee-orange  py-3 px-4 text-coffee-orange text-lg rounded-lg text-center hover:bg-coffee-brown'>
                 Continue shopping
-                </Link>
+                </Link> 
             </div>
         )
     }
@@ -31,14 +31,17 @@ function Cart() {
                          </div>
                          <div className='flex items-center bg-gray-200 gap-2 p-1 rounded-lg'>
                             
-                            <button className='p-2 hover:bg-gray-400 rounded-lg transition'>
+                            <button onClick={()=> decreaseQuantity(item.id)}
+                            className='p-2 hover:bg-gray-400 rounded-lg transition'>
                               <FiMinus />
                             </button>
-                            <span>2</span>
-                            <button className='p-2 hover:bg-gray-400 rounded-lg transition'>
+                            <span>{item.quantity}</span>
+                            <button onClick={()=> increasingQuantity(item.id)}
+                            className='p-2 hover:bg-gray-400 rounded-lg transition'>
                               <FiPlus />
                             </button>
-                            <button className='p-2 text-red-600 hover:bg-red-500 hover:text-white rounded-lg'>
+                            <button  onClick={()=> removeFromCart(item.id)}
+                            className='p-2 text-red-600 hover:bg-red-500 hover:text-white rounded-lg'>
                                 <FiTrash2 />
                             </button>
                          </div>
@@ -50,8 +53,8 @@ function Cart() {
            <div className='bg-coffee-cream border border-coffee-orange rounded-lg p-6 '>
             <div className='space-y-3 mb-4'>
                 <div className='flex justify-between'>
-                    <span className='text-gray-500'>Subtotal</span>
-                    <span className='font-bold'>$ 33:00</span>
+                    <span className='text-gray-500'>Subtotal{cartCount} Items</span>
+                    <span className='font-bold'>${cartTotal.toFixed(2)}</span>
                 </div>
                 <div className='flex justify-between'>
                     <span className='text-gray-500'>Shipping</span>
@@ -59,9 +62,9 @@ function Cart() {
                 </div>
                 <div className='flex justify-between border-t border-coffee-orange pt-3'>
                     <span className='text-lg font-bold'>Total</span>
-                    <span className='text-2xl font-bold text-coffee-orange'>$ 33:00</span>
+                    <span className='text-2xl font-bold text-coffee-orange'>${cartTotal.toFixed(2)} </span>
                 </div>
-            </div>
+            </div> 
             <Link to="/checkout" className='w-full block text-center px-6 py-3 bg-coffee-orange text-white rounded-lg font-bold hover:bg-coffee-brown transition'>
             Proceed to checkOut
             </Link>
